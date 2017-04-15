@@ -1,6 +1,6 @@
 module.exports = {
   player: {
-    volume: 0.05,
+    volume: 0.2,
     shuffle: true
   },
   youtube: {
@@ -10,6 +10,9 @@ module.exports = {
     token: 'DISCORD_TOKEN'
   },
   streaming: {
-    passes: 1
+    passes: 2
+  },
+  permissions: {
+
   }
 };

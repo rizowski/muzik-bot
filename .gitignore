@@ -39,3 +39,4 @@ jspm_packages
 build
 .cache
 .DS_Store
+.sync

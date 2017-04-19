@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --recursive tests --compilers js:babel-core/register",
     "build": "babel lib -d build -s inline",
-    "start": "npm run build && node ."
+    "start": "node ."
   },
   "repository": {
     "type": "git",

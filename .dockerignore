@@ -1,0 +1,13 @@
+src
+lib
+tests
+.babelrc
+.editorconfig
+.eslint*
+.git*
+.npm*
+.nvm*
+
+node_modules
+*.log
+*.DS_*

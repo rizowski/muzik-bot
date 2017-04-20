@@ -39,7 +39,7 @@
     "url-parse": "^1.1.8",
     "uws": "^0.14.0",
     "youtube-api": "^2.0.8",
-    "ytdl-core": "^0.10.3"
+    "ytdl-core": "^0.12.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",

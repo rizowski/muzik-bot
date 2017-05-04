@@ -6,7 +6,9 @@
   "scripts": {
     "test": "mocha --recursive tests --compilers js:babel-core/register",
     "build": "babel lib -d build -s inline",
-    "start": "node ."
+    "start": "node .",
+    "docker:build": "./scripts/create-image.sh",
+    "docker:start": "./scripts/start-image.sh"
   },
   "repository": {
     "type": "git",

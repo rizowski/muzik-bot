@@ -8,14 +8,43 @@ Muzik-bot is a competitor of [MusicBot](https://github.com/Just-Some-Bots/MusicB
 
 ### Mac OSX
 
+  - `brew install ffmpeg`
   - xCode
     - Set developer tools: `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`
   - Node: `6`
-  - `brew install ffmpeg`
+
+### Linux
+  - `sudo apt install node-gyp`
 
 ## Getting Started
 
 Below is how to get the bot running either with command line or a docker container.
+
+### Roles
+
+Each role is in hierarchy order. `Owner` has all permissions but `mod` only has `mod` + `dj` permissions.
+
+```
+  owner:
+    - player
+      - settings
+    - cache
+      - settings
+  mod:
+    - player
+      - volume
+    - cache
+      - clean
+  dj:
+    - help
+    - hello
+    - player
+      - play
+      - queued
+      - skip
+      - stop
+      - shuffle
+```
 
 ## config
 
@@ -61,3 +90,11 @@ The config settings are pretty self explanatory, but in the case that they're no
 ### Docker
 
 > comming soon...
+
+```
+docker run rizowski/muzik-bot \
+  --name muzik-bot \
+  -v /local/path/for/config:/usr/src/app/config \
+  -v /local/path/for/cache:/usr/src/app/.cache \
+
+```

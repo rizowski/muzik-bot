@@ -13,32 +13,47 @@ describe('bot', () => {
     guild = {
       roles: []
     };
-    channel = {};
+    channel = {
+      startTyping() {
+
+      },
+      stopTyping(){
+
+      },
+    };
     voiceChannel = {};
     client = {};
     message = {
       content: '<@12345> hello',
       author: {
 
+      },
+      channel:{
+        sendMessage(){
+
+        }
       }
     };
   });
 
-  it('calls command:hello given the correct permissions', (done) =>{
-    emitter.once('command:hello', () =>{
-      done();
+  it.only('calls command:hello given the correct permissions', () =>{
+    const promise = emitter.once('command:hello', (stuff) =>{
+      console.log(stuff)
     });
 
     emitter.emit('bot:acknowledgeMessage', { message, client, voiceChannel, channel, guild });
+
+    return promise;
   });
 
-  it('calls command:help given the correct permissions', (done) => {
+  it('calls command:help given the correct permissions', () => {
     message.content = '<@1234> help';
-    emitter.once('command:help', () =>{
-      done();
+    const promise = emitter.once('command:help', () =>{
     });
 
     emitter.emit('bot:acknowledgeMessage', { message, client, voiceChannel, channel, guild });
+
+    return promise;
   });
 
   it('calls command:play');

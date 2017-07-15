@@ -25,7 +25,7 @@ describe('command: help', () => {
     it(`calls ${bot.response} when ${commands.help} is emitted`, () => {
       const input = { string: '' };
       const handler = ({ response }) => {
-        expect(response).to.equal('I have the following commands:\n```play - Plays some tunes\nskip - Skips something nasty\nhelp - Gives you some less than helpful information\nhello - Says hello\nstop - Clears the Queue\nqueued - Shows what is queued\nshuffle - Shuffles all the songs in the current queue\nset - Used for changing settings```\nJust `@testy` with your command and I will oblige.\nYou can also `@testy help <command>` to get more information about a particular command');
+        expect(response).to.equal('I have the following commands:\n```play - Plays some tunes\nqueued - Shows what is queued\nshuffle - Shuffles all the songs in the current queue\nskip - Skips something nasty\nstop - Clears the Queue\nhello - Says hello\nhelp - Gives you some less than helpful information\nset - Used for changing settings```\nJust `@testy` with your command and I will oblige.\nYou can also `@testy help <command>` to get more information about a particular command');
       };
 
       const promise = emitter.once(bot.response, handler);

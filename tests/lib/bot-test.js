@@ -36,9 +36,8 @@ describe('bot', () => {
     };
   });
 
-  it.only('calls command:hello given the correct permissions', () =>{
-    const promise = emitter.once('command:hello', (stuff) =>{
-      console.log(stuff)
+  it('calls command:hello given the correct permissions', () =>{
+    const promise = emitter.once('command:hello', () =>{
     });
 
     emitter.emit('bot:acknowledgeMessage', { message, client, voiceChannel, channel, guild });

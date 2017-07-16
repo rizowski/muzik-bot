@@ -13,8 +13,9 @@ module.exports = {
   streaming: {
     passes: 1
   },
-  commands:{
-    disabled: ['bot.hello']
+  restricted: {
+    commands: ['bot.hello'],
+    channels: []
   },
   permissions: {
     enabled: false,

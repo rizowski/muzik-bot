@@ -7,8 +7,8 @@ module.exports = {
     location: ''
   },
   apiKeys: {
-    discord: 'jwt here',
-    youtube: 'token here'
+    discord: 'MzM1NTI1MDcyNjQxMDY0OTYx.DErBnw.kx3xtPzzFZLeCwGgyqpht4Lbw_Y',
+    youtube: 'AIzaSyA-Wr9SqyKXkMtXSKy5iRbLKkmHjXtA2Kg'
   },
   streaming: {
     passes: 1
@@ -18,7 +18,7 @@ module.exports = {
     channels: []
   },
   permissions: {
-    enabled: false,
+    enabled: true,
     owner: [
       'player.settings',
       'cache.settings'

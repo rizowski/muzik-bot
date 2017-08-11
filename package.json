@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive tests --compilers js:babel-core/register",
+    "test": "ALLOW_CONFIG_MUTATIONS=true mocha --recursive tests --compilers js:babel-core/register",
     "build": "babel lib -d build -s inline",
     "start": "node .",
     "docker:build": "./scripts/create-image.sh",
@@ -42,20 +42,21 @@
     "url-parse": "^1.1.8",
     "uws": "^0.14.0",
     "youtube-api": "^2.0.8",
-    "ytdl-core": "^0.12.1"
+    "ytdl-core": "^0.14.4"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.0",
-    "babel-core": "^6.24.0",
-    "babel-eslint": "^7.2.1",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-babili": "0.0.12",
-    "babel-preset-env": "^1.2.2",
-    "babel-preset-stage-2": "^6.22.0",
+    "babel-preset-babili": "^0.1.4",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-2": "^6.24.1",
     "chai": "^3.5.0",
     "eslint": "^3.18.0",
     "eslint-config-rizowski": "^1.0.2",
     "eslint-watch": "^3.0.1",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "sinon": "^2.4.1"
   }
 }

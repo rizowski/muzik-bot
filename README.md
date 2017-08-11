@@ -1,5 +1,7 @@
 # muzik-bot
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rizowski/muzik-bot.svg)](https://greenkeeper.io/)
+
 Muzik-bot is a competitor of [MusicBot](https://github.com/Just-Some-Bots/MusicBot). Why? Because when I would try to run MusicBot for an extended amount of time it would crash. With the large number of issues and lack of project support, Muzik-bot was born. With Muzik-bot you will find that it stable and faster than other competitors.
 
 ## requirements

@@ -1,7 +1,10 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 import config from 'config';
+import _ from 'lodash';
 import gatekeeper from '../../lib/gate-keeper';
+
+const permissionsEnabled = _.clone(config.permissions.enabled);
 
 describe('gate-keeper', () => {
   let message = null;
@@ -65,20 +68,38 @@ describe('gate-keeper', () => {
     command = '';
   });
 
-
+  after(() => {
+    config.permissions.enabled = permissionsEnabled;
+  });
 
   describe('function calls', () => {
-    beforeEach(() => {
+    let allowsChannel;
+    let allowsCommand;
+    let channelReturn;
+    let commandReturn;
+    before(() => {
       sandbox = sinon.sandbox.create();
     });
 
+    beforeEach(() => {
+      channelReturn = null;
+      commandReturn = null;
+      allowsChannel = sandbox.stub(gatekeeper, 'allowsChannel').callsFake(() => { return channelReturn; });
+      allowsCommand = sandbox.stub(gatekeeper, 'allowsCommand').callsFake(() => { return commandReturn; });
+    });
+
     afterEach(() => {
+      allowsChannel.restore();
+      allowsCommand.restore();
+    });
+
+    after(() => {
       sandbox.restore();
     });
 
     it('allowsPassage calls allowChannel and allows command', () => {
-      const allowsChannel = sandbox.stub(gatekeeper, 'allowsChannel').callsFake(() => { return true; });
-      const allowsCommand = sandbox.stub(gatekeeper, 'allowsCommand').callsFake(() => { return false; });
+      channelReturn = true;
+      commandReturn = false;
 
       const result = gatekeeper.allowsPassage(message, server, command);
 
@@ -90,8 +111,8 @@ describe('gate-keeper', () => {
 
     it('short curcuits if permissions are disabled', () => {
       config.permissions.enabled = false;
-      const allowsChannel = sandbox.stub(gatekeeper, 'allowsChannel').callsFake(() => { return true; });
-      const allowsCommand = sandbox.stub(gatekeeper, 'allowsCommand').callsFake(() => { return true; });
+      channelReturn = true;
+      commandReturn = true;
 
       const result = gatekeeper.allowsPassage(message, server, command);
 
@@ -103,8 +124,8 @@ describe('gate-keeper', () => {
 
     it('short curcuits if the owner issued the commands', () => {
       message.serverOwner = true;
-      const allowsChannel = sandbox.stub(gatekeeper, 'allowsChannel').callsFake(() => { return true; });
-      const allowsCommand = sandbox.stub(gatekeeper, 'allowsCommand').callsFake(() => { return true; });
+      channelReturn = true;
+      commandReturn = true;
 
       const result = gatekeeper.allowsPassage(message, server, command);
 

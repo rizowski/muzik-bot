@@ -1,14 +1,14 @@
 import '../../lib/bot';
-import { expect } from 'chai';
+// import { expect } from 'chai';
 import emitter from '../../lib/emitter';
 
 describe.skip('bot', () => {
   let payload = null;
   let message = null;
-  let client = null;
-  let voiceChannel = null;
-  let channel = null;
-  let guild = null;
+  // let client = null;
+  // let voiceChannel = null;
+  // let channel = null;
+  // let guild = null;
 
   beforeEach(() => {
     payload = {
@@ -39,7 +39,7 @@ describe.skip('bot', () => {
   });
 
   it('calls command:hello given the correct permissions', (done) =>{
-    const promise = emitter.once('command:hello', (thing) => {
+    const promise = emitter.once('command:hello', () => {
       done();
     });
 

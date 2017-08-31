@@ -16,7 +16,7 @@ module.exports = {
   //   token: 'TOKEN.GOES.HERE' // or set process.env.DISCORD_TOKEN
   // },
   streaming: {
-    passes: 2  // Discord reccomends not going above 5.
+    passes: 2 // Discord reccomends not going above 5.
   },
   permissions: {
     enabled: false

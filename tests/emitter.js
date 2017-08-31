@@ -1,7 +1,7 @@
 import emitter from '../lib/emitter';
 import { expect } from 'chai';
 
-describe('emitter', () => {
+describe.skip('emitter', () => {
   beforeEach(() =>{
     emitter.removeAllListeners('test');
   });
